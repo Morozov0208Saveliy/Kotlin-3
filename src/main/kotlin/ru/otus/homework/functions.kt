@@ -45,7 +45,7 @@ internal fun LocalDate.russian(): String {
 
 fun what(): String = "Огурцов"
 
-fun calculate(n1: Int, n2: Int): String = "$n1 + $n2 = ${ n1 + n2 } ${ what() }"
+fun calculate(n1: Int, n2: Int): String = "$n1 + $n2 = ${n1 + n2} ${what()}"
 
 fun calculate(n1: Int, n2: Float): String {
     fun add(): String {
@@ -60,7 +60,7 @@ fun calculate(n1: Int, n2: Float): String {
 
         return "$n1 + $n2 = $s"
     }
-    return "${ add() } ${ what() }"
+    return "${add()} ${what()}"
 }
 
 fun Float.formatWithDot(): String = "%.2f".format(this)
@@ -78,3 +78,8 @@ fun calculate(n1: Int, n2: Int, op: (Int, Int) -> Int): String {
 
 fun add(a: Int, b: Int): Int = a + b
 fun subtract(a: Int, b: Int): Int = a - b
+fun firstAtHomwork(arg1: Int, arg2: Int, v: Int = 1): Int {
+    val result = arg1 + arg2 + v
+    return result
+}
+
