@@ -27,6 +27,12 @@ fun main() {
 
     val product = 2 by 2
     println("Произведение: $product")
+
+    val fenally = funInFun {
+        for (i in 1..10000000){
+            println(i)
+        }
+    }
 }
 
 infix fun Int.by(other: Int): Int = this * other
@@ -82,6 +88,15 @@ fun firstAtHomwork(arg1: Int, arg2: Int, vararg v: Int): Int {
     val result = arg1 + arg2 + v.sum()
     return result
 }
+
 fun secondAtHomwork(vararg str: String, chr: Char = ' '): String {
     return str.joinToString(chr.toString())
+}
+
+fun funInFun(runTime:() -> Unit):Long{
+    val startTime = System.nanoTime()
+    runTime()
+    val endTime = System.nanoTime()
+    return endTime - startTime
+
 }
