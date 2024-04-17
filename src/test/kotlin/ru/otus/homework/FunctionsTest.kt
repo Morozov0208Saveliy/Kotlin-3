@@ -18,4 +18,12 @@ class FunctionsTest {
         val result = firstAtHomwork(2, 3, 1)
         assertEquals(6, result)
     }
+
+    @Test
+    fun secondAtHomworkTest() {
+        Assertions.assertEquals(
+            "str1,str2,str3",
+            secondAtHomwork("str1","str2","str3", chr = ',')
+        )
+    }
 }

@@ -78,8 +78,10 @@ fun calculate(n1: Int, n2: Int, op: (Int, Int) -> Int): String {
 
 fun add(a: Int, b: Int): Int = a + b
 fun subtract(a: Int, b: Int): Int = a - b
-fun firstAtHomwork(arg1: Int, arg2: Int, v: Int = 1): Int {
-    val result = arg1 + arg2 + v
+fun firstAtHomwork(arg1: Int, arg2: Int, vararg v: Int): Int {
+    val result = arg1 + arg2 + v.sum()
     return result
 }
-
+fun secondAtHomwork(vararg str: String, chr: Char = ' '): String {
+    return str.joinToString(chr.toString())
+}
