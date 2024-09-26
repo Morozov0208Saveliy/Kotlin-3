@@ -27,6 +27,12 @@ fun main() {
 
     val product = 2 by 2
     println("Произведение: $product")
+
+    val fenally = funInFun {
+        for (i in 1..10000000){
+            println(i)
+        }
+    }
 }
 
 infix fun Int.by(other: Int): Int = this * other
@@ -45,7 +51,7 @@ internal fun LocalDate.russian(): String {
 
 fun what(): String = "Огурцов"
 
-fun calculate(n1: Int, n2: Int): String = "$n1 + $n2 = ${ n1 + n2 } ${ what() }"
+fun calculate(n1: Int, n2: Int): String = "$n1 + $n2 = ${n1 + n2} ${what()}"
 
 fun calculate(n1: Int, n2: Float): String {
     fun add(): String {
@@ -60,7 +66,7 @@ fun calculate(n1: Int, n2: Float): String {
 
         return "$n1 + $n2 = $s"
     }
-    return "${ add() } ${ what() }"
+    return "${add()} ${what()}"
 }
 
 fun Float.formatWithDot(): String = "%.2f".format(this)
@@ -78,3 +84,19 @@ fun calculate(n1: Int, n2: Int, op: (Int, Int) -> Int): String {
 
 fun add(a: Int, b: Int): Int = a + b
 fun subtract(a: Int, b: Int): Int = a - b
+fun firstAtHomwork(arg1: Int, arg2: Int, vararg v: Int): Int {
+    val result = arg1 + arg2 + v.sum()
+    return result
+}
+
+fun secondAtHomwork(vararg str: String, chr: Char = ' '): String {
+    return str.joinToString(chr.toString())
+}
+
+fun funInFun(runTime:() -> Unit):Long{
+    val startTime = System.nanoTime()
+    runTime()
+    val endTime = System.nanoTime()
+    return endTime - startTime
+
+}
